@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation", "FindMyLocation\FindMyLocation.csproj", "{54480138-A28D-44C4-8C61-A4ED8C418488}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Domain", "FindMyLocation.Domain\FindMyLocation.Domain.csproj", "{6DC7EB22-C70B-4B60-99C0-B53D4883D186}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Infrastructure", "FindMyLocation.Infrastructure\FindMyLocation.Infrastructure.csproj", "{EEFB90AB-7C09-45E0-BA14-4C38551F7B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Persistence", "FindMyLocation.Persistence\FindMyLocation.Persistence.csproj", "{F5B2DCAA-ABFD-4892-B84E-E08A15CFD0CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Service", "FindMyLocation.Service\FindMyLocation.Service.csproj", "{80BEFCB7-646B-47E0-8258-B7D7029E3437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Test.Integration", "FindMyLocation.Test.Integration\FindMyLocation.Test.Integration.csproj", "{2319211C-C0DF-45F5-9361-A76C55C04B0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Test.Unit", "FindMyLocation.Test.Unit\FindMyLocation.Test.Unit.csproj", "{B64220AE-2E36-4007-AE47-76A30AB1D428}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54480138-A28D-44C4-8C61-A4ED8C418488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54480138-A28D-44C4-8C61-A4ED8C418488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54480138-A28D-44C4-8C61-A4ED8C418488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54480138-A28D-44C4-8C61-A4ED8C418488}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC7EB22-C70B-4B60-99C0-B53D4883D186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC7EB22-C70B-4B60-99C0-B53D4883D186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC7EB22-C70B-4B60-99C0-B53D4883D186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC7EB22-C70B-4B60-99C0-B53D4883D186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEFB90AB-7C09-45E0-BA14-4C38551F7B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEFB90AB-7C09-45E0-BA14-4C38551F7B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEFB90AB-7C09-45E0-BA14-4C38551F7B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEFB90AB-7C09-45E0-BA14-4C38551F7B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B2DCAA-ABFD-4892-B84E-E08A15CFD0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B2DCAA-ABFD-4892-B84E-E08A15CFD0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B2DCAA-ABFD-4892-B84E-E08A15CFD0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B2DCAA-ABFD-4892-B84E-E08A15CFD0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80BEFCB7-646B-47E0-8258-B7D7029E3437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80BEFCB7-646B-47E0-8258-B7D7029E3437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80BEFCB7-646B-47E0-8258-B7D7029E3437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80BEFCB7-646B-47E0-8258-B7D7029E3437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2319211C-C0DF-45F5-9361-A76C55C04B0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2319211C-C0DF-45F5-9361-A76C55C04B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2319211C-C0DF-45F5-9361-A76C55C04B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2319211C-C0DF-45F5-9361-A76C55C04B0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64220AE-2E36-4007-AE47-76A30AB1D428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64220AE-2E36-4007-AE47-76A30AB1D428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64220AE-2E36-4007-AE47-76A30AB1D428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64220AE-2E36-4007-AE47-76A30AB1D428}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBE46C3A-1449-45A6-95E9-740D68A7999E}
+	EndGlobalSection
+EndGlobal
