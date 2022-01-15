@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using FindMyLocation.Domain.Entities;
-using FindMyLocation.Infrastructure.ViewModel;
 
 namespace FindMyLocation.Infrastructure.Mapping
 {
@@ -8,10 +6,7 @@ namespace FindMyLocation.Infrastructure.Mapping
     {
         public CustomerProfile()
         {
-            CreateMap<CustomerModel, Customer>()
-                .ForMember(dest => dest.Id,
-                        opt => opt.MapFrom(src => src.CustomerId))
-                .ReverseMap();
+         
         }
     }
 }

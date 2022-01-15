@@ -22,4 +22,10 @@
     <ProjectReference Include="..\FindMyLocation.Persistence\FindMyLocation.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contract\" />
+    <Folder Include="Features\" />
+    <Folder Include="Implementation\" />
+  </ItemGroup>
+
 </Project>

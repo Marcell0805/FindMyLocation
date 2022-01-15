@@ -1,6 +1,5 @@
 using FindMyLocation.Domain.Settings;
 using FindMyLocation.Infrastructure.Extension;
-using FindMyLocation.Persistence;
 using FindMyLocation.Service;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
@@ -14,7 +13,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.FeatureManagement;
 using Serilog;
-using System;
 using System.IO;
 
 namespace FindMyLocation
@@ -44,7 +42,7 @@ namespace FindMyLocation
 
             services.AddDbContext(Configuration, configRoot);
 
-            services.AddIdentityService(Configuration);
+           
 
             services.AddAutoMapper();
 

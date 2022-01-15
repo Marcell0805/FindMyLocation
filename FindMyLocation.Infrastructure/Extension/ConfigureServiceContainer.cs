@@ -2,8 +2,6 @@
 using FindMyLocation.Domain.Settings;
 using FindMyLocation.Infrastructure.Mapping;
 using FindMyLocation.Persistence;
-using FindMyLocation.Service.Contract;
-using FindMyLocation.Service.Implementation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,9 +10,6 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Reflection;
 
 namespace FindMyLocation.Infrastructure.Extension
 {
@@ -48,8 +43,6 @@ namespace FindMyLocation.Infrastructure.Extension
         }
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<IDateTimeService, DateTimeService>();
-            serviceCollection.AddTransient<IAccountService, AccountService>();
         }
 
 
