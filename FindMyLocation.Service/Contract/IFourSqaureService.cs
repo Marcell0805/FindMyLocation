@@ -9,10 +9,10 @@ namespace FindMyLocation.Service.Contract
 {
     public interface IFourSqaureService
     {
-        Task<IEnumerable<ModelFour>> GetAll(string locationName, decimal lat, decimal lon, int count);
+        Task<IEnumerable<ModelFour>> GetAll(string locationName, string lat, string lon, string count);
         Task<IEnumerable<ModelFour>> GetGeo(decimal lat, decimal lon, int count = 5);
         Task<IEnumerable<ModelFour>> GetName(string locationName,int count = 5);
-        Task<IEnumerable<ImageModel>> GetPictures(ModelFour modelFour);
+        Task<IEnumerable<ImageModel>> GetPictures(string modelFour);
         //void AddResult(FourSqaureVenues modelFour);
         Task DeleteLocation(int locationId);
     }

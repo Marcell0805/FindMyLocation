@@ -45,9 +45,9 @@ namespace FindMyLocation.Controllers
         /// Gets details from all details
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("GetByAll/{locationName}/{lat}/{lon}/{count}", Name = "getByAll")]
         [ProducesResponseType(200)]
-        public async Task<IEnumerable<ModelFour>> GetByAll(string locationName, decimal lat, decimal lon, int count = 5)
+        public async Task<IEnumerable<ModelFour>> GetByAll(string locationName, string lat, string lon, string count = "5")
         {
             var result = _fourSqaureService.GetAll(locationName, lat, lon, count).Result;
             return result;
@@ -57,8 +57,8 @@ namespace FindMyLocation.Controllers
         /// Gets picture details from result fetched
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GetImages/fourModel", Name = "getImages")]
-        public async Task<IEnumerable<ImageModel>> GetImages(ModelFour modelFour)
+        [HttpGet("GetImages/{modelFour}", Name = "getImages")]
+        public async Task<IEnumerable<ImageModel>> GetImages(string modelFour)
         {
             var result = _fourSqaureService.GetPictures(modelFour).Result;
             return result;

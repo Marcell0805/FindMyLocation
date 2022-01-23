@@ -3,19 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation", "FindMyLocation\FindMyLocation.csproj", "{54480138-A28D-44C4-8C61-A4ED8C418488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation", "FindMyLocation\FindMyLocation.csproj", "{54480138-A28D-44C4-8C61-A4ED8C418488}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Domain", "FindMyLocation.Domain\FindMyLocation.Domain.csproj", "{6DC7EB22-C70B-4B60-99C0-B53D4883D186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Domain", "FindMyLocation.Domain\FindMyLocation.Domain.csproj", "{6DC7EB22-C70B-4B60-99C0-B53D4883D186}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Infrastructure", "FindMyLocation.Infrastructure\FindMyLocation.Infrastructure.csproj", "{EEFB90AB-7C09-45E0-BA14-4C38551F7B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Infrastructure", "FindMyLocation.Infrastructure\FindMyLocation.Infrastructure.csproj", "{EEFB90AB-7C09-45E0-BA14-4C38551F7B9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Persistence", "FindMyLocation.Persistence\FindMyLocation.Persistence.csproj", "{F5B2DCAA-ABFD-4892-B84E-E08A15CFD0CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Persistence", "FindMyLocation.Persistence\FindMyLocation.Persistence.csproj", "{F5B2DCAA-ABFD-4892-B84E-E08A15CFD0CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Service", "FindMyLocation.Service\FindMyLocation.Service.csproj", "{80BEFCB7-646B-47E0-8258-B7D7029E3437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Service", "FindMyLocation.Service\FindMyLocation.Service.csproj", "{80BEFCB7-646B-47E0-8258-B7D7029E3437}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Test.Integration", "FindMyLocation.Test.Integration\FindMyLocation.Test.Integration.csproj", "{2319211C-C0DF-45F5-9361-A76C55C04B0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Test.Integration", "FindMyLocation.Test.Integration\FindMyLocation.Test.Integration.csproj", "{2319211C-C0DF-45F5-9361-A76C55C04B0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Test.Unit", "FindMyLocation.Test.Unit\FindMyLocation.Test.Unit.csproj", "{B64220AE-2E36-4007-AE47-76A30AB1D428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Test.Unit", "FindMyLocation.Test.Unit\FindMyLocation.Test.Unit.csproj", "{B64220AE-2E36-4007-AE47-76A30AB1D428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Win", "FindMyLocation.Win\FindMyLocation.Win\FindMyLocation.Win.csproj", "{C32434B1-2647-4A64-A518-5BE1C6B47AAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Web", "FindMyLocation.Web\FindMyLocation.Web\FindMyLocation.Web.csproj", "{FE05854C-F16D-4AD1-A28E-C4444CE1785E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{B64220AE-2E36-4007-AE47-76A30AB1D428}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B64220AE-2E36-4007-AE47-76A30AB1D428}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B64220AE-2E36-4007-AE47-76A30AB1D428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32434B1-2647-4A64-A518-5BE1C6B47AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32434B1-2647-4A64-A518-5BE1C6B47AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32434B1-2647-4A64-A518-5BE1C6B47AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32434B1-2647-4A64-A518-5BE1C6B47AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE05854C-F16D-4AD1-A28E-C4444CE1785E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE05854C-F16D-4AD1-A28E-C4444CE1785E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE05854C-F16D-4AD1-A28E-C4444CE1785E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE05854C-F16D-4AD1-A28E-C4444CE1785E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
