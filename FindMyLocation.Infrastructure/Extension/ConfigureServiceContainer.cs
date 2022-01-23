@@ -46,6 +46,7 @@ namespace FindMyLocation.Infrastructure.Extension
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IFourSqaureService, FourSquareService>();
+            serviceCollection.AddTransient<IFourSqaureVenues, FourSqaureVenueService>();
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(RepositoryService<>));
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FindMyLocation.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace FindMyLocation.Service.Contract
 {
     public interface IFourSqaureVenues
     {
-         
+        void AddResult(FourSqaureVenues modelFour);
+        Task<IEnumerable<FourSqaureVenues>> GetAll(double lat, double lon);
     }
 }

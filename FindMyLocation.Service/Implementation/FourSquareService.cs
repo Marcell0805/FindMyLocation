@@ -24,19 +24,7 @@ namespace FindMyLocation.Service.Implementation
             _entities = context.Set<ModelFour>();
         }
 
-        public void AddResult(ModelFour modelFour)
-        {
-            try
-            {
-                _repository.Insert(modelFour);
-                _repository.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
+        
 
         public async Task DeleteLocation(int locationId)
         {
@@ -111,9 +99,17 @@ namespace FindMyLocation.Service.Implementation
             return modelFour;
         }
 
-        public List<string> GetPictures()
+        public async Task<IEnumerable<ImageModel>> GetPictures(ModelFour modelFour)
         {
-            throw new NotImplementedException();
+            int index = 0;
+            string api1 = $"https://api.foursquare.com/v3/places/{modelFour.results[index].fsq_id}/photos?limit={1}";
+            RestClient clientS;
+            RestRequest requestS;
+            Requestbuilder(api1, out clientS, out requestS);
+            List<string> pictureUrls = new List<string>();
+            RestResponse responseP = await clientS.ExecuteGetAsync(requestS);
+            List<ImageModel> imageModels = JsonSerializer.Deserialize<List<ImageModel>>(responseP.Content);
+            return imageModels;
         }
     }
     
