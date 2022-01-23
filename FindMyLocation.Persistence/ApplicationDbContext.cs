@@ -1,4 +1,5 @@
 ﻿
+using FindMyLocation.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
@@ -20,7 +21,7 @@ namespace FindMyLocation.Persistence
         {
             
         }
-
+        public DbSet<ModelFour> ModelFours { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

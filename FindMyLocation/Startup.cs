@@ -1,6 +1,7 @@
 using FindMyLocation.Domain.Settings;
 using FindMyLocation.Infrastructure.Extension;
 using FindMyLocation.Service;
+using FlickrNet;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -21,6 +22,9 @@ namespace FindMyLocation
     {
         private readonly IConfigurationRoot configRoot;
         private AppSettings AppSettings { get; set; }
+        const string apiKey = "1dbdf23c11e78948d96501398b913026";
+
+        Flickr flickr = new Flickr(apiKey);
 
         public Startup(IConfiguration configuration)
         {

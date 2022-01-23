@@ -23,8 +23,8 @@ namespace FindMyLocation.Infrastructure.Extension
 
             app.UseSwaggerUI(setupAction =>
             {
-                setupAction.SwaggerEndpoint("/swagger/OpenAPISpecification/swagger.json", "Onion Architecture API");
-                setupAction.RoutePrefix = "OpenAPI";
+                setupAction.SwaggerEndpoint("/swagger/FindMyLocation/swagger.json", "Find My Location API");
+                setupAction.RoutePrefix = "FindMyLocation";
             });
         }
 

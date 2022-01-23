@@ -2,6 +2,8 @@
 using FindMyLocation.Domain.Settings;
 using FindMyLocation.Infrastructure.Mapping;
 using FindMyLocation.Persistence;
+using FindMyLocation.Service.Contract;
+using FindMyLocation.Service.Implementation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +21,7 @@ namespace FindMyLocation.Infrastructure.Extension
              IConfiguration configuration, IConfigurationRoot configRoot)
         {
             serviceCollection.AddDbContext<ApplicationDbContext>(options =>
-                   options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"]
+                   options.UseSqlServer(configuration.GetConnectionString("FindMyLocationConn") ?? configRoot["ConnectionStrings:FindMyLocationConn"]
                 , b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
 
@@ -43,6 +45,8 @@ namespace FindMyLocation.Infrastructure.Extension
         }
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
+            serviceCollection.AddTransient<IFourSqaureService, FourSquareService>();
+            serviceCollection.AddScoped(typeof(IRepository<>), typeof(RepositoryService<>));
         }
 
 
@@ -53,45 +57,19 @@ namespace FindMyLocation.Infrastructure.Extension
             {
 
                 setupAction.SwaggerDoc(
-                    "OpenAPISpecification",
+                    "FindMyLocation",
                     new OpenApiInfo()
                     {
-                        Title = "Onion Architecture WebAPI",
+                        Title = "Find My Location WebAPI",
                         Version = "1",
-                        Description = "Through this API you can access customer details",
+                        Description = "Through this API you can find locations",
                         Contact = new OpenApiContact()
                         {
-                            Email = "amit.naik8103@gmail.com",
-                            Name = "Amit Naik",
-                            Url = new Uri("https://amitpnk.github.io/")
-                        },
-                        License = new OpenApiLicense()
-                        {
-                            Name = "MIT License",
-                            Url = new Uri("https://opensource.org/licenses/MIT")
+                            Email = "marcellvanniekerk@gmail.com",
+                            Name = "Marcell",
+                            Url = new Uri("https://github.com/Marcell0805")
                         }
                     });
-
-                setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.Http,
-                    Scheme = "bearer",
-                    BearerFormat = "JWT",
-                    Description = $"Input your Bearer token in this format - Bearer token to access this API",
-                });
-                setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer",
-                            },
-                        }, new List<string>()
-                    },
-                });
             });
 
         }
@@ -122,7 +100,7 @@ namespace FindMyLocation.Infrastructure.Extension
             serviceCollection.AddHealthChecks()
                 .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
                 .AddUrlGroup(new Uri(appSettings.ApplicationDetail.ContactWebsite), name: "My personal website", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
+                .AddSqlServer(configuration.GetConnectionString("FindMyLocationConn"));
 
             serviceCollection.AddHealthChecksUI(setupSettings: setup =>
             {
