@@ -31,73 +31,98 @@ namespace FindMyLocation.Win.UserControls
                 throw;
             }
         }
+        //The task that will search the results
         public async Task Get()
         {
-            MainScreenCode codeM = new MainScreenCode();
-            resultTxtArea.Clear();
             var searchText = locNameTxt.Text.ToString();
             string lon = longTxt.Text;
             string lat = latTxt.Text;
             string count = countTxt.Text;
-            count = string.IsNullOrEmpty(count) ? "5" : countTxt.Text;
-
-            string imageText = "";
-            //https://localhost:44356/api/FourSqaureApi/GetByAll?locationName=Germany&lat=52.3664&lon=9.7369&count=5
-            var r=await codeM.GetResults("Germany", "52.3664", "9.7369", count);
-            //var r = await codeM.GetByName(searchText, count);
-
-            bool imgFound = false;
-            int index = 0;
-            List<ImageModel> images = new();
-            while (!imgFound)
+            if (!string.IsNullOrEmpty(lat) && !string.IsNullOrEmpty(lon) || !string.IsNullOrEmpty(searchText))
             {
-                foreach (var item in r)
+                MainScreenCode codeM = new MainScreenCode();
+                resultTxtArea.Clear();
+                
+                count = string.IsNullOrEmpty(count) ? "5" : countTxt.Text;
+                IEnumerable<ModelFour> result = null;
+
+                if (!string.IsNullOrEmpty(lat) && !string.IsNullOrEmpty(lon) && !string.IsNullOrEmpty(searchText))
                 {
-                    var tt = await codeM.GetImages(item.results[index].fsq_id);
-                    if (tt.Any())
+                    result = await codeM.GetResults(searchText, lon, lat, count);
+                }
+                else if (!string.IsNullOrEmpty(lat) && !string.IsNullOrEmpty(lon))
+                {
+                    result = await codeM.GetByGeo(lon, lat, count);
+                }
+                else if (!string.IsNullOrEmpty(searchText))
+                {
+                    result = await codeM.GetByName(searchText, count);
+                }
+                string imageText = "";
+                ////https://localhost:44356/api/FourSqaureApi/GetByAll?locationName=Germany&lat=52.3664&lon=9.7369&count=5
+                //var r=await codeM.GetResults("Germany", "52.3664", "9.7369", count);
+                //var r = await codeM.GetByName(searchText, count);
+
+                bool imgFound = false;
+                int index = 0;
+                List<ImageModel> images = new();
+                while (!imgFound)
+                {
+                    if(index==result.Count())
                     {
-                        foreach (var itemPic in tt)
+                        break;
+                    }
+                    foreach (var item in result)
+                    {
+                        var tt = await codeM.GetImages(item.results[index].fsq_id);
+                        if (tt.Any())
                         {
-                            string preSuf =itemPic.suffix;
-                            if (!images.Contains(itemPic))
+                            foreach (var itemPic in tt)
                             {
-                                images.Add(itemPic);
-                                imgFound = true;
-                                break;
+                                string preSuf = itemPic.suffix;
+                                if (!images.Contains(itemPic))
+                                {
+                                    images.Add(itemPic);
+                                    imgFound = true;
+                                    break;
+                                }
                             }
                         }
+                        index++;
                     }
-                    index++;
+                }
+                int imgN = 0;
+                foreach (var item in result)
+                {
+                    Random r = new Random();
+                    int ranImg = r.Next(result.Count());
+                    imageText = item.results[ranImg].name;
+                    imgN = ranImg;
+                    break;
+                }
+                if(imgFound)
+                {
+                    string UrlSS = "";
+                    UrlSS = images[imgN].prefix + "original" + images[imgN].suffix;
+                    pictureBox1.Load(UrlSS);
+                    imgLblTxt.Text = imageText;
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                int line = 0;
+                //This part populkates the text area with the results
+                foreach (var photo in result)
+                {
+                    string a = $"{line+1} - Category: {photo.results[line].categories[0].name} \n- Geo Code: {photo.results[line].geocodes.main.longitude} lon {photo.results[line].geocodes.main.latitude}\n " +
+                        $"-Location: {photo.results[line].location.address} {photo.results[line].location.postcode} {photo.results[line].location.post_town} {photo.results[line].name}\n";
+                    resultTxtArea.Text += a;
+                    line++;
+
                 }
             }
-
-            foreach (var item in r)
+            else
             {
-                imageText = item.results[0].name;
-                break;
+                MessageBox.Show("Please Enter Search Data", "Requires data");
             }
-
-            DataTable tbl = new DataTable();
-            //tbl.
-            tbl.Columns.Add("Name");
-            tbl.Columns.Add("Latitude");
-            tbl.Columns.Add("Longitude");
-            tbl.Columns.Add("Address");
-            tbl.Columns.Add("Locality");
-            tbl.Columns.Add("Country");
-            tbl.Columns.Add("Region");
-            tbl.Columns.Add("TimeZone");
-            tbl.Columns.Add("Image");
-            foreach (var item in r)
-            {
-                
-            }
-            string UrlSS = "";
-            UrlSS = images[0].prefix + "original" + images[0].suffix;
-            pictureBox1.Load(UrlSS);
-            imgLblTxt.Text = imageText;
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
         }
     }
 }

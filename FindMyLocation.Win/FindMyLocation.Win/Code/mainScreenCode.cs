@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace FindMyLocation.Win.Code
 {
+    //This class handles all the calls to the rest service
+    //In production apps I usually use the app config files to set the paths
     public class MainScreenCode
     {
         //https://localhost:44356/api/FourSqaureApi/GetByAll?locationName=Germany&lat=52.3664&lon=9.7369&count=5
@@ -23,7 +25,7 @@ namespace FindMyLocation.Win.Code
             var resultApi = await FourSqaureApi.GetByAll(searchTxt,lon,lat, count);
             return resultApi;
         }
-        public async Task<IEnumerable<ModelFour>> GetByGeo(string searchTxt, string lon, string lat, string count)
+        public async Task<IEnumerable<ModelFour>> GetByGeo(string lon, string lat, string count)
         {
             FourSqaureApi = RestService.For<IFourSqaureApi>("http://localhost:53623/api/");
             var resultApi = await FourSqaureApi.GetByGeo(lon,lat, count);
