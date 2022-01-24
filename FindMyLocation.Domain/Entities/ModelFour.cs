@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FindMyLocation.Domain.Entities
 {
@@ -56,11 +57,14 @@ namespace FindMyLocation.Domain.Entities
         public string name { get; set; }
         public RelatedPlaces related_places { get; set; }
         public string timezone { get; set; }
+        [NotMapped]
+        public string imagePath { get; set; }
     }
     [Keyless]
     public class ModelFour
     {
         public int locationId { get; set; }
+        
         public List<Result> results { get; set; }
     }
 

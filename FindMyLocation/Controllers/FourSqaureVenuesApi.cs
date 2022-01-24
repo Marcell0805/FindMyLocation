@@ -31,5 +31,18 @@ namespace FindMyLocation.Controllers
                 return BadRequest();
             }
         }
+        [HttpGet("GetAllResults/", Name = "getAllResults")]
+        public async Task<IEnumerable<FourSqaureVenues>> GetAllResults()
+        {
+            try
+            {
+                var t=_fourSqaureService.GetAll().Result;
+                return t;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

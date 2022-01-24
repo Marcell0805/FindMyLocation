@@ -7,6 +7,9 @@ namespace FindMyLocation.Persistence
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
+        public DbSet<FourSqaureVenues> FourSqaureVenues{ get; set; }
+        public DbSet<ImageModel> ImageModels{ get; set; }
+        public DbSet<ModelFour> ModelFours { get; set; }
         // This constructor is used of runit testing
         public ApplicationDbContext()
         {
@@ -21,14 +24,15 @@ namespace FindMyLocation.Persistence
         {
             
         }
-        public DbSet<ModelFour> ModelFours { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder
-                .UseSqlServer("DataSource=app.db");
-            }
+            optionsBuilder
+                .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=FindLocationData");
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    optionsBuilder
+            //    .UseSqlServer("Data Source=(localdb)\\MSQLLocalDB; Initial Catalog=FindLocationData");
+            //}
 
         }
 

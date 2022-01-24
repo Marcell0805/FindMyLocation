@@ -10,6 +10,7 @@ namespace FindMyLocation.Service.Contract
     public interface IFourSqaureVenues
     {
         void AddResult(FourSqaureVenues modelFour);
-        Task<IEnumerable<FourSqaureVenues>> GetAll(double lat, double lon);
+        Task<IEnumerable<FourSqaureVenues>> GetAllExisting(double lat, double lon);
+        Task<IEnumerable<FourSqaureVenues>> GetAll();
     }
 }

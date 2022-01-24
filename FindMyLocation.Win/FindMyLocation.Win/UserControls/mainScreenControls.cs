@@ -78,6 +78,22 @@ namespace FindMyLocation.Win.UserControls
                 imageText = item.results[0].name;
                 break;
             }
+
+            DataTable tbl = new DataTable();
+            //tbl.
+            tbl.Columns.Add("Name");
+            tbl.Columns.Add("Latitude");
+            tbl.Columns.Add("Longitude");
+            tbl.Columns.Add("Address");
+            tbl.Columns.Add("Locality");
+            tbl.Columns.Add("Country");
+            tbl.Columns.Add("Region");
+            tbl.Columns.Add("TimeZone");
+            tbl.Columns.Add("Image");
+            foreach (var item in r)
+            {
+                
+            }
             string UrlSS = "";
             UrlSS = images[0].prefix + "original" + images[0].suffix;
             pictureBox1.Load(UrlSS);

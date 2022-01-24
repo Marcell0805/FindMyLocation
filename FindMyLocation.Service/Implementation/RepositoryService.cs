@@ -41,12 +41,20 @@ namespace FindMyLocation.Service.Implementation
 
         void IRepository<T>.Insert(T entity)
         {
-            if (entity == null)
+            try
             {
-                throw new ArgumentNullException("entity");
+                if (entity == null)
+                {
+                    throw new ArgumentNullException("entity");
+                }
+                _entities.Add(entity);
+                _context.Entry(entity).State = EntityState.Added;
             }
-            _entities.Add(entity);
-            _context.Entry(entity).State = EntityState.Added;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         void IRepository<T>.Update(T entity)
@@ -87,7 +95,15 @@ namespace FindMyLocation.Service.Implementation
         }
         async Task IRepository<T>.SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw e;
+            }
         }
     }
 }

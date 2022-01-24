@@ -15,7 +15,7 @@ namespace FindMyLocation.Domain.Entities
         public string suffix { get; set; }
         public int width { get; set; }
         public int height { get; set; }
-        public List<string> classifications { get; set; }
+        //public List<string> classifications { get; set; }
     }
 
 

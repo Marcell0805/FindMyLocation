@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Test.Integra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Test.Unit", "FindMyLocation.Test.Unit\FindMyLocation.Test.Unit.csproj", "{B64220AE-2E36-4007-AE47-76A30AB1D428}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Win", "FindMyLocation.Win\FindMyLocation.Win\FindMyLocation.Win.csproj", "{C32434B1-2647-4A64-A518-5BE1C6B47AAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Win", "FindMyLocation.Win\FindMyLocation.Win\FindMyLocation.Win.csproj", "{C32434B1-2647-4A64-A518-5BE1C6B47AAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyLocation.Web", "FindMyLocation.Web\FindMyLocation.Web\FindMyLocation.Web.csproj", "{FE05854C-F16D-4AD1-A28E-C4444CE1785E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyLocation.Web", "FindMyLocation.Web\FindMyLocation.Web\FindMyLocation.Web.csproj", "{FE05854C-F16D-4AD1-A28E-C4444CE1785E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

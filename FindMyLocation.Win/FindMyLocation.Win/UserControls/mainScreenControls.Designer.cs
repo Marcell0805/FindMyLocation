@@ -42,7 +42,9 @@ namespace FindMyLocation.Win.UserControls
             this.resultTxtArea = new System.Windows.Forms.RichTextBox();
             this.searchBtn = new System.Windows.Forms.Button();
             this.locNameTxt = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // imgLblTxt
@@ -129,9 +131,6 @@ namespace FindMyLocation.Win.UserControls
             // 
             // longTxt
             // 
-            this.longTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.longTxt.Location = new System.Drawing.Point(214, 21);
             this.longTxt.Name = "longTxt";
             this.longTxt.Size = new System.Drawing.Size(100, 23);
@@ -149,9 +148,6 @@ namespace FindMyLocation.Win.UserControls
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Location = new System.Drawing.Point(3, 311);
             this.pictureBox1.Name = "pictureBox1";
@@ -161,9 +157,6 @@ namespace FindMyLocation.Win.UserControls
             // 
             // resultTxtArea
             // 
-            this.resultTxtArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.resultTxtArea.Location = new System.Drawing.Point(2, 141);
             this.resultTxtArea.Name = "resultTxtArea";
             this.resultTxtArea.Size = new System.Drawing.Size(971, 146);
@@ -172,9 +165,6 @@ namespace FindMyLocation.Win.UserControls
             // 
             // searchBtn
             // 
-            this.searchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchBtn.Location = new System.Drawing.Point(2, 51);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(75, 23);
@@ -193,10 +183,20 @@ namespace FindMyLocation.Win.UserControls
             this.locNameTxt.Size = new System.Drawing.Size(100, 23);
             this.locNameTxt.TabIndex = 32;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(427, 311);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(546, 221);
+            this.dataGridView1.TabIndex = 45;
+            // 
             // mainScreenControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.imgLblTxt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -213,6 +213,7 @@ namespace FindMyLocation.Win.UserControls
             this.Name = "mainScreenControls";
             this.Size = new System.Drawing.Size(976, 575);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +234,6 @@ namespace FindMyLocation.Win.UserControls
         private System.Windows.Forms.RichTextBox resultTxtArea;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.TextBox locNameTxt;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

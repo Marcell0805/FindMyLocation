@@ -1,0 +1,76 @@
+﻿@page "/findLocation"
+
+
+@*<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" asp-append-version="true" width="300px" />
+<img src="https://www.w3schools.com/html/img_chania.jpg" alt="alternatetext">*@
+
+<div style="border: 2px solid powderblue; padding: 30px;">
+    <div>
+        <div class="row">
+            <div class="col">
+                <label for="locationName" class="col-sm-11">Location Name : </label>
+                <input id="locationName" class="form-control col-sm-11"
+                       @bind="@locationSearch"
+                       placeholder="Location Name" />
+            </div>
+                                    
+            <div class="col">
+                <label for="latitude" class="col-sm-11">Latitude: </label>
+                <input id="latitude" class="form-control col-sm-11"
+                       @bind="@latSearch"
+                       placeholder="latitude" />
+            </div>
+
+            <div class="col">
+                <label for="longitude" class="col-sm-11">Longitude: </label>
+                <input id="longitude" class="form-control col-sm-11"
+                       @bind="@lonSearch"
+                       placeholder="longitude" />
+            </div>
+           
+            <div class="col">
+                <label for="count" class="col-sm-11">Result count: </label>
+                <input id="count" class="form-control col-sm-11"
+                       @bind="@countSearch"
+                       placeholder="Number of Results" />
+            </div>
+           
+        </div>
+        <div class="row">
+            <button style="background-color: white;color: #00bfff;border: 2px solid #4169e1;" @onclick="searchResults">Search</button>
+        </div>
+    </div>
+</div>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Location Name</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>Postal Code</th>
+            <th>Region</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach(var items in FourModel.results)
+            {
+                <td>@items.name</td>
+                <td>@items.location.address</td>
+                <td>@items.location.country</td>
+                <td>@items.location.postcode</td>
+                <td>@items.location.region</td>
+                <td><img src="@($"{items.imagePath}")"/></td>
+            }
+        </tbody>
+    </table>
+    @*<DxDataGrid Data="@fourSquareVenuesResult"
+                CssClass="mw-1100">
+        <Columns>
+            <DxDataGridDateEditColumn Caption="Date" Field="locationId" />
+            <DxDataGridColumn Caption="Temperature" Field="latitude" />
+        </Columns>
+    </DxDataGrid>*@
+</div>
+

@@ -94,23 +94,28 @@ namespace FindMyLocation
 
             app.UseAuthorization();
             app.ConfigureSwagger();
-            app.UseHealthChecks("/healthz", new HealthCheckOptions
-            {
-                Predicate = _ => true,
-                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
-                ResultStatusCodes =
-                {
-                    [HealthStatus.Healthy] = StatusCodes.Status200OK,
-                    [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
-                    [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
-                },
-            }).UseHealthChecksUI(setup =>
-              {
-                  setup.ApiPath = "/healthcheck";
-                  setup.UIPath = "/healthcheck-ui";
-                  //setup.AddCustomStylesheet("Customization/custom.css");
-              });
-
+            //app.UseHealthChecks("/healthz", new HealthCheckOptions
+            //{
+            //    Predicate = _ => true,
+            //    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+            //    ResultStatusCodes =
+            //    {
+            //        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+            //        [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
+            //        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+            //    },
+            //}).UseHealthChecksUI(setup =>
+            //  {
+            //      setup.ApiPath = "/healthcheck";
+            //      setup.UIPath = "/healthcheck-ui";
+            //      //setup.AddCustomStylesheet("Customization/custom.css");
+            //  });
+            app.UseCors(cors => cors
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials()
+            );
 
             app.UseEndpoints(endpoints =>
             {

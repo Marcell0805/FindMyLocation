@@ -5,12 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.Blazor" Version="21.2.5" />
+    <PackageReference Include="DevExpress.Blazor.Server.WebAssembly" Version="21.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.13" PrivateAssets="all" />
     <PackageReference Include="Refit" Version="6.1.15" />
     <PackageReference Include="Refit.HttpClientFactory" Version="6.1.15" />
     <PackageReference Include="Refit.Newtonsoft.Json" Version="6.1.15" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FindMyLocation.Domain\FindMyLocation.Domain.csproj" />
   </ItemGroup>
 
 </Project>
