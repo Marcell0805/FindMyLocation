@@ -65,9 +65,7 @@ namespace FindMyLocation.Win.UserControls
                                 imgFound = true;
                                 break;
                             }
-                            
                         }
-                        //break;
                     }
                     index++;
                 }

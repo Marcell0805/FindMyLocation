@@ -121,9 +121,7 @@ namespace FindMyLocation.Win.UserControls
             // 
             // countTxt
             // 
-            this.countTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.countTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.countTxt.Location = new System.Drawing.Point(320, 21);
             this.countTxt.Name = "countTxt";
             this.countTxt.Size = new System.Drawing.Size(100, 23);
@@ -131,6 +129,7 @@ namespace FindMyLocation.Win.UserControls
             // 
             // longTxt
             // 
+            this.longTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.longTxt.Location = new System.Drawing.Point(214, 21);
             this.longTxt.Name = "longTxt";
             this.longTxt.Size = new System.Drawing.Size(100, 23);
@@ -138,9 +137,7 @@ namespace FindMyLocation.Win.UserControls
             // 
             // latTxt
             // 
-            this.latTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.latTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.latTxt.Location = new System.Drawing.Point(108, 21);
             this.latTxt.Name = "latTxt";
             this.latTxt.Size = new System.Drawing.Size(100, 23);
@@ -148,6 +145,7 @@ namespace FindMyLocation.Win.UserControls
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Location = new System.Drawing.Point(3, 311);
             this.pictureBox1.Name = "pictureBox1";
@@ -157,6 +155,7 @@ namespace FindMyLocation.Win.UserControls
             // 
             // resultTxtArea
             // 
+            this.resultTxtArea.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.resultTxtArea.Location = new System.Drawing.Point(2, 141);
             this.resultTxtArea.Name = "resultTxtArea";
             this.resultTxtArea.Size = new System.Drawing.Size(971, 146);
@@ -175,9 +174,7 @@ namespace FindMyLocation.Win.UserControls
             // 
             // locNameTxt
             // 
-            this.locNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.locNameTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.locNameTxt.Location = new System.Drawing.Point(2, 21);
             this.locNameTxt.Name = "locNameTxt";
             this.locNameTxt.Size = new System.Drawing.Size(100, 23);
@@ -185,6 +182,7 @@ namespace FindMyLocation.Win.UserControls
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(427, 311);
             this.dataGridView1.Name = "dataGridView1";

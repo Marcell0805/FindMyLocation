@@ -1,5 +1,6 @@
 using FindMyLocation.Domain.Settings;
 using FindMyLocation.Infrastructure.Extension;
+using FindMyLocation.Persistence;
 using FindMyLocation.Service;
 using FlickrNet;
 using HealthChecks.UI.Client;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -14,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.FeatureManagement;
 using Serilog;
+using System;
 using System.IO;
 
 namespace FindMyLocation
@@ -71,6 +74,7 @@ namespace FindMyLocation
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory log)
         {
+            UpdateDatabase(app);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -94,22 +98,6 @@ namespace FindMyLocation
 
             app.UseAuthorization();
             app.ConfigureSwagger();
-            //app.UseHealthChecks("/healthz", new HealthCheckOptions
-            //{
-            //    Predicate = _ => true,
-            //    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
-            //    ResultStatusCodes =
-            //    {
-            //        [HealthStatus.Healthy] = StatusCodes.Status200OK,
-            //        [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
-            //        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
-            //    },
-            //}).UseHealthChecksUI(setup =>
-            //  {
-            //      setup.ApiPath = "/healthcheck";
-            //      setup.UIPath = "/healthcheck-ui";
-            //      //setup.AddCustomStylesheet("Customization/custom.css");
-            //  });
             app.UseCors(cors => cors
                 .AllowAnyMethod()
                 .AllowAnyHeader()
@@ -121,6 +109,26 @@ namespace FindMyLocation
             {
                 endpoints.MapControllers();
             });
+        }
+        private static void UpdateDatabase(IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices
+                .GetRequiredService<IServiceScopeFactory>()
+                .CreateScope())
+            {
+                using (var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>())
+                {
+                    try
+                    {
+                        context.Database.Migrate();
+                    }
+                    catch (Exception)
+                    {
+
+
+                    }
+                }
+            }
         }
     }
 }
