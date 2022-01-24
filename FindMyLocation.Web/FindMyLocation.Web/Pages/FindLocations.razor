@@ -44,27 +44,35 @@
 <div>
     <table class="table">
         <thead>
-        <tr>
-            <th>Location Name</th>
-            <th>Address</th>
-            <th>Country</th>
-            <th>Postal Code</th>
-            <th>Region</th>
-            <th>Image</th>
-        </tr>
+            <tr>
+                <th>Location Name</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>Postal Code</th>
+                <th>Region</th>
+                <th>Image</th>
+            </tr>
         </thead>
         <tbody>
-        @foreach(var items in FourModel.results)
+            @if (FourModel != null)
             {
-                <td>@items.name</td>
-                <td>@items.location.address</td>
-                <td>@items.location.country</td>
-                <td>@items.location.postcode</td>
-                <td>@items.location.region</td>
-                <td><img src="@($"{items.imagePath}")"/></td>
+                if (FourModel.results!=null)
+                {
+                    int index = 0;
+                    @foreach (var items in FourModel.results)
+                    {
+                    <td>@items.name</td>
+                    <td>@items.location.address</td>
+                    <td>@items.location.country</td>
+                    <td>@items.location.postcode</td>
+                    <td>@items.location.region</td>
+                    <td><img src="@($"{imageModels[index].prefix}/original/{imageModels[index].suffix}")" /></td>
+                    }
+                }
             }
-        </tbody>
-    </table>
+            </tbody>
+
+        </table>
     @*<DxDataGrid Data="@fourSquareVenuesResult"
                 CssClass="mw-1100">
         <Columns>

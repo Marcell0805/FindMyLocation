@@ -61,6 +61,18 @@ namespace FindMyLocation.Controllers
         public async Task<IEnumerable<ImageModel>> GetImages(string modelFour)
         {
             var result = _fourSqaureService.GetPictures(modelFour).Result;
+            List<ImageModel> res = new();
+            ImageModel m = new ImageModel();
+            if(result!=null)
+            {
+                return result;
+            }
+            else
+            {
+                res.Add(m);
+                result = res;
+            }
+
             return result;
         }
        

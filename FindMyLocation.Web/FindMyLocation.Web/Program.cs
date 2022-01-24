@@ -37,7 +37,6 @@ namespace FindMyLocation.Web
                 .ConfigureHttpClient(c => { c.BaseAddress = new Uri($"{appSettings.ApiBaseUrl}api"); });
 
             #endregion
-            builder.Services.AddDevExpressBlazor();
             await builder.Build().RunAsync();
         }
     }
