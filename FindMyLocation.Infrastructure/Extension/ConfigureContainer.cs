@@ -4,6 +4,7 @@ using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -25,6 +26,13 @@ namespace FindMyLocation.Infrastructure.Extension
             {
                 setupAction.SwaggerEndpoint("/swagger/FindMyLocation/swagger.json", "Find My Location API");
                 setupAction.RoutePrefix = "FindMyLocation";
+            });
+        }
+        public static void AddCrossSiteOrigin(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddCors(options =>
+            {
+                options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
         }
 

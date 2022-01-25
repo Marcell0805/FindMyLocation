@@ -8,8 +8,8 @@ namespace FindMyLocation.Web.APIStructs
     public interface IFourSquareVenuApi
     {
 
-        [Post("/FourSqaureVenuesApi/AddResult/")]
-        Task<IEnumerable<ImageModel>> AddResult(ModelFour modelFour);
+        [Post("/FourSqaureVenuesApi")]
+        Task<IEnumerable<FourSqaureVenues>> AddResult(FourSqaureVenues modelFour);
         [Get("/FourSqaureVenuesApi/GetAllResults/")]
         Task<IEnumerable<FourSqaureVenues>> GetAllResults();
        

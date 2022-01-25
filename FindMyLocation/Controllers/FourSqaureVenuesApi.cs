@@ -18,13 +18,16 @@ namespace FindMyLocation.Controllers
         {
             this._fourSqaureService = fourSqaureService;
         }
-        [HttpPost("AddResult/", Name = "addResult")]
+        [HttpPost]
         public async Task<ActionResult<IEnumerable<FourSqaureVenues>>> AddResult(FourSqaureVenues modelFourResult)
         {
             try
             {
                 _fourSqaureService.AddResult(modelFourResult);
-                return Ok();
+                List<FourSqaureVenues>empty= new();
+                FourSqaureVenues emptyResult = new();
+                empty.Add(emptyResult);
+                return empty;
             }
             catch (Exception e)
             {

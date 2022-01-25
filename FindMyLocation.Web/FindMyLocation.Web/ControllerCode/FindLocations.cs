@@ -95,11 +95,12 @@ namespace FindMyLocation.Web.Pages
                     break;
                 }
             }
-            //await SaveResults(modelFours);
+            await SaveResults(modelFours);
             btnVisble = true;
             StateHasChanged();
         }
-        //This method would have saved the results
+        //This method has been fixed to save the results
+        //Updated 25/01/2022 8:08 am
         private async Task SaveResults(List<ModelFour> modelFours)
         {
             int index = 0;
@@ -126,8 +127,9 @@ namespace FindMyLocation.Web.Pages
                         timezone = item.results[index].timezone
                     };
 
-                    //await FourSquareVenueApi.AddResult(itemToAdd);
+                    await FourSquareVenueApi.AddResult(itemToAdd);
                 }
+                index++;
             }
             
         }

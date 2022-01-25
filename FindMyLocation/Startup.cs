@@ -68,6 +68,7 @@ namespace FindMyLocation
             services.AddHealthCheck(AppSettings, Configuration);
 
             services.AddFeatureManagement();
+            services.AddCrossSiteOrigin();
         }
 
 
@@ -80,10 +81,7 @@ namespace FindMyLocation
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(options =>
-                 options.WithOrigins("http://localhost:3000")
-                 .AllowAnyHeader()
-                 .AllowAnyMethod());
+           
 
             app.ConfigureCustomExceptionMiddleware();
 
