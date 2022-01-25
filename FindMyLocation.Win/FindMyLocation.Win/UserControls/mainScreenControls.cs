@@ -118,6 +118,15 @@ namespace FindMyLocation.Win.UserControls
                     line++;
 
                 }
+                try
+                {
+                    await codeM.SaveResults(result.ToList());
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
             else
             {
